@@ -2,7 +2,7 @@
 @section('title', 'Checkout Product')
 @section('content')
 
-<x-navbar></x-navbar>
+<x-navbar />
 
 <section id="checkout" class="container max-w-[1130px] mx-auto mt-[90px]">
     <div class="w-full flex justify-center gap-[118px]">
@@ -18,7 +18,7 @@
                         <p class="font-semibold">Huis Elite: The Complete Smart Home App UI Kit for Modern Living
                         </p>
                         <p
-                            class="bg-[#2A2A2A] font-semibold text-xs text-belibang-grey rounded-[4px] p-[4px_6px] w-fit">
+                            class="bg-[#2A2A2A] font-semibold text-xs text-infinistore-grey rounded-[4px] p-[4px_6px] w-fit">
                             Template</p>
                     </div>
                     <div class="flex justify-between items-center">
@@ -26,7 +26,7 @@
                             <div class="w-8 h-8 rounded-full flex shrink-0 overflow-hidden">
                                 <img src="{{ asset('images/logos/logo_buildwithangga.png') }}" alt="logo">
                             </div>
-                            <p class="font-semibold text-belibang-grey">BWA</p>
+                            <p class="font-semibold text-infinistore-grey">BWA</p>
                         </div>
                         <p
                             class="font-semibold text-4xl bg-clip-text text-transparent bg-gradient-to-r from-[#B05CB0] to-[#FCB16B]">
@@ -36,7 +36,7 @@
             </div>
         </div>
         <form
-            class="flex flex-col p-[30px] gap-[60px] rounded-[20px] w-[450px] border-2 border-belibang-darker-grey">
+            class="flex flex-col p-[30px] gap-[60px] rounded-[20px] w-[450px] border-2 border-infinistore-darker-grey">
             <div class="w-full flex flex-col gap-4">
                 <p class="font-semibold text-xl">Transfer to:</p>
                 <div class="flex flex-col gap-3">
@@ -44,11 +44,11 @@
                         <div
                             class="flex items-center gap-1 p-[12px_20px] pl-4 w-[163px] justify-between rounded-lg bg-[#181818] hover:ring-[1px] hover:ring-[#A0A0A0] focus:ring-[1px] focus:ring-[#A0A0A0] transition-all duration-300">
                             <div class="flex flex-col">
-                                <label for="bank" class="text-xs text-belibang-grey pl-1">Bank Name</label>
+                                <label for="bank" class="text-xs text-infinistore-grey pl-1">Bank Name</label>
                                 <select name="bank" id="bank"
                                     class="mt-1 font-semibold bg-transparent appearance-none outline-none px-1 invalid:text-[#595959] invalid:font-normal invalid:text-sm"
                                     required>
-                                    <option class="text-belibang-black" value="Angga Bank" selected>
+                                    <option class="text-infinistore-black" value="Angga Bank" selected>
                                         Angga Bank</option>
                                 </select>
                             </div>
@@ -59,7 +59,7 @@
                         <div
                             class="flex items-center gap-1 p-[12px_20px] pl-4 w-[215px] justify-between rounded-lg bg-[#181818] hover:ring-[1px] hover:ring-[#A0A0A0] focus:ring-[1px] focus:ring-[#A0A0A0] transition-all duration-300">
                             <div class="flex flex-col w-full">
-                                <label for="name" class="text-xs text-belibang-grey pl-1">Account Name</label>
+                                <label for="name" class="text-xs text-infinistore-grey pl-1">Account Name</label>
                                 <div class="flex mt-1 items-center max-w-[149px]">
                                     <input disabled type="text" name="name" value="Angga Capital" id="name"
                                         class="font-semibold bg-transparent appearance-none autofull-no-bg outline-none px-1 placeholder:text-[#595959] placeholder:font-normal placeholder:text-sm w-full"
@@ -74,7 +74,7 @@
                     <div
                         class="flex items-center gap-1 p-[12px_20px] pl-4 justify-between rounded-lg bg-[#181818] hover:ring-[1px] hover:ring-[#A0A0A0] focus:ring-[1px] focus:ring-[#A0A0A0] transition-all duration-300">
                         <div class="flex flex-col w-full">
-                            <label for="number" class="text-xs text-belibang-grey pl-1">Account Number</label>
+                            <label for="number" class="text-xs text-infinistore-grey pl-1">Account Number</label>
                             <div class="flex mt-1 items-center max-w-[322px]">
                                 <input type="tel" name="number" disabled id="number"
                                     class="mt-1 font-semibold bg-transparent appearance-none autofull-no-bg outline-none px-1 placeholder:text-[#595959] placeholder:font-normal placeholder:text-sm w-full"
@@ -125,7 +125,6 @@
 @endsection
 
 @push('after-script')
-
 <script>
     function previewFile() {
         var preview = document.querySelector('.file-preview');

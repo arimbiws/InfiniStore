@@ -18,29 +18,33 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'name' => 'E-book',
+                'desc' => 'Read and Learn',
                 'slug' => 'ebook',
-                'icon' => 'images/icon_ebook.png',
+                'icon' => 'images/icons/ebook.svg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'name' => 'Course',
+                'desc' => 'Expand Your Skills',
                 'slug' => 'course',
-                'icon' => 'images/icon_ebook.png',
+                'icon' => 'images/icons/course.svg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'name' => 'Template',
+                'desc' => 'Designs Made Easy',
                 'slug' => 'template',
-                'icon' => 'images/icon_template.png',
+                'icon' => 'images/icons/template.svg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'name' => 'Font',
+                'desc' => 'Typography Selection',
                 'slug' => 'font',
-                'icon' => 'images/icon_font.png',
+                'icon' => 'images/icons/font.svg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],

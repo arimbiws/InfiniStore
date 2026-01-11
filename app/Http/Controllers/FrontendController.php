@@ -11,9 +11,12 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $products = Product::where('creator_id', Auth::id())->get();
+        // $products = Product::where('creator_id', Auth::id())->get();
+        $products = Product::all();
+        $categories = Category::all();
         return view('frontend.index', [
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 

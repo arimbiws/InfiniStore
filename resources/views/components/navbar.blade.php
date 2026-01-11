@@ -1,15 +1,15 @@
 <nav class="w-full fixed top-0 bg-[#00000010] backdrop-blur-lg z-10">
     <div class="container max-w-[1130px] mx-auto flex items-center justify-between h-[74px]">
         <div class="flex items-center gap-[26px]">
-            <a href="index.html" class="flex w-[154px] shrink-0 items-center">
+            <a href="{{route('frontend.index')}}" class="flex w-[154px] shrink-0 items-center">
                 <img src="{{ asset('images/logos/logo.svg') }}" alt="logo">
             </a>
             <ul class="flex gap-6 items-center">
-                <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
+                <li class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300">
                     <a href="{{route('frontend.index')}}">Home</a>
                 </li>
-                <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300 relative">
-                    <button id="menu-button" class="flex items-center gap-1 focus:text-belibang-light-grey">
+                <li class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300 relative">
+                    <button id="menu-button" class="flex items-center gap-1 focus:text-infinistore-light-grey">
                         <span>Categories</span>
                         <img src="{{ asset('images/icons/arrow-down.svg') }}" alt="icon">
                     </button>
@@ -18,12 +18,12 @@
                         <div
                             class="col-span-2 flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
                             <div class="flex items-center">
-                                <a href="" class="w-[58px] h-[58px] flex shrink-0 flex items-center">
+                                <a href="#Category" class="w-[58px] h-[58px] flex shrink-0 items-center">
                                     <img src="{{ asset('images/icons/cart.svg') }}" alt="icon">
                                 </a>
-                                <a href="" class="flex flex-col">
+                                <a href="#Category" class="flex flex-col">
                                     <p class="font-bold text-sm text-white">All Products</p>
-                                    <p class="text-xs text-belibang-grey">Everything in One Place</p>
+                                    <p class="text-xs text-infinistore-grey">Everything in One Place</p>
                                 </a>
                             </div>
                             <div class="w-6 h-6 flex shrink-0">
@@ -33,69 +33,76 @@
                         <div
                             class="flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
                             <div class="flex items-center">
-                                <a href="" class="w-[58px] h-[58px] flex shrink-0 flex items-center">
-                                    <img src="{{ asset('images/icons/laptop.svg') }}" alt="icon">
+                                <a href="{{ route('frontend.category', '3') }}" class="w-[58px] h-[58px] flex shrink-0 items-center">
+                                    <img src="{{ asset('images/icons/template.svg') }}" alt="icon">
                                 </a>
-                                <a href="" class="flex flex-col">
+                                <a href="{{ route('frontend.category', '3') }}" class="flex flex-col">
                                     <p class="font-bold text-sm text-white">Templates</p>
-                                    <p class="text-xs text-belibang-grey">Designs Made Easy</p>
+                                    <p class="text-xs text-infinistore-grey">Designs Made Easy</p>
                                 </a>
                             </div>
                         </div>
                         <div
                             class="flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
                             <div class="flex items-center">
-                                <a href="" class="w-[58px] h-[58px] flex shrink-0 flex items-center">
-                                    <img src="{{ asset('images/icons/hat.svg') }}" alt="icon">
+                                <a href="{{ route('frontend.category', '2') }}" class="w-[58px] h-[58px] flex shrink-0 items-center">
+                                    <img src="{{ asset('images/icons/course.svg') }}" alt="icon">
                                 </a>
-                                <a href="" class="flex flex-col">
+                                <a href="{{ route('frontend.category', '2') }}" class="flex flex-col">
                                     <p class="font-bold text-sm text-white">Courses</p>
-                                    <p class="text-xs text-belibang-grey">Expand Your Skills</p>
+                                    <p class="text-xs text-infinistore-grey">Expand Your Skills</p>
                                 </a>
                             </div>
                         </div>
                         <div
                             class="flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
                             <div class="flex items-center">
-                                <a href="" class="w-[58px] h-[58px] flex shrink-0 flex items-center">
-                                    <img src="{{ asset('images/icons/book.svg') }}" alt="icon">
+                                <a href="{{ route('frontend.category', '1') }}" class="w-[58px] h-[58px] flex shrink-0 items-center">
+                                    <img src="{{ asset('images/icons/ebook.svg') }}" alt="icon">
                                 </a>
-                                <a href="" class="flex flex-col">
+                                <a href="{{ route('frontend.category', '1') }}" class="flex flex-col">
                                     <p class="font-bold text-sm text-white">Ebooks</p>
-                                    <p class="text-xs text-belibang-grey">Read and Learn</p>
+                                    <p class="text-xs text-infinistore-grey">Read and Learn</p>
                                 </a>
                             </div>
                         </div>
                         <div
                             class="flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
                             <div class="flex items-center">
-                                <a href="" class="w-[58px] h-[58px] flex shrink-0 flex items-center">
-                                    <img src="{{ asset('images/icons/pen.svg') }}" alt="icon">
+                                <a href="{{ route('frontend.category', '4') }}" class="w-[58px] h-[58px] flex shrink-0 items-center">
+                                    <img src="{{ asset('images/icons/font.svg') }}" alt="icon">
                                 </a>
-                                <a href="" class="flex flex-col">
+                                <a href="{{ route('frontend.category', '4') }}" class="flex flex-col">
                                     <p class="font-bold text-sm text-white">Fonts</p>
-                                    <p class="text-xs text-belibang-grey">Typography Selection</p>
+                                    <p class="text-xs text-infinistore-grey">Typography Selection</p>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
+                <li class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300">
                     <a href="">Stories</a>
                 </li>
-                <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
+                <li class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300">
                     <a href="">Benefits</a>
                 </li>
-                <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
+                <li class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300">
                     <a href="">About</a>
                 </li>
             </ul>
         </div>
         <div class="flex gap-6 items-center">
-            <a href="{{ route('login') }}" class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">Log
+            @guest
+            <a href="{{ route('login') }}" class="text-infinistore-grey hover:text-infinistore-light-grey transition-all duration-300">Log
                 in</a>
             <a href="{{ route('register') }}"
-                class="p-[8px_16px] w-fit h-fit rounded-[12px] text-belibang-grey border border-belibang-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">Sign up</a>
+                class="p-[8px_16px] w-fit h-fit rounded-[12px] text-infinistore-grey border border-infinistore-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">Sign up</a>
+            @endguest
+
+            @auth
+            <a href="{{ route('admin.dashboard') }}"
+                class="p-[8px_16px] w-fit h-fit rounded-[12px] text-infinistore-grey border border-infinistore-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">Dashboard</a>
+            @endauth
         </div>
     </div>
 </nav>

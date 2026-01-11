@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Dashboard Belibang Marketplace')
+@section('title', 'Dashboard')
 @section('content')
 
 <x-navbar />
@@ -9,24 +9,24 @@
     <div class="container max-w-[1130px] mx-auto flex flex-col items-center justify-center gap-[34px] z-10">
         <div class="flex flex-col gap-2 text-center w-fit mt-20 z-10">
             <h1 class="font-semibold text-[60px] leading-[130%]">Explore High Quality<br>Digital Products</h1>
-            <p class="text-lg text-belibang-grey">Change the way you work to achieve better results.</p>
+            <p class="text-lg text-infinistore-grey">Change the way you work to achieve better results.</p>
         </div>
         <div class="flex w-full justify-center mb-[34px] z-10">
             <form
-                class="group/search-bar p-[14px_18px] bg-belibang-darker-grey ring-1 ring-[#414141] hover:ring-[#888888] max-w-[560px] w-full rounded-full transition-all duration-300">
+                class="group/search-bar p-[14px_18px] bg-infinistore-darker-grey ring-1 ring-[#414141] hover:ring-[#888888] max-w-[560px] w-full rounded-full transition-all duration-300">
                 <div class="relative text-left">
                     <button class="absolute inset-y-0 left-0 flex items-center">
                         <img src="{{ asset('images/icons/search-normal.svg') }}" alt="icon">
                     </button>
                     <input type="text" id="searchInput"
-                        class="bg-belibang-darker-grey w-full pl-[36px] focus:outline-none placeholder:text-[#595959] pr-9"
+                        class="bg-infinistore-darker-grey w-full pl-[36px] focus:outline-none placeholder:text-[#595959] pr-9"
                         placeholder="Type anything to search..." />
                     <input type="reset" id="resetButton" class="close-button hidden w-[38px] h-[38px] flex shrink-0 bg-[url(' {{ asset('images/icons/close.svg')}} ')] hover:bg-[url(' {{ asset('images/icons/close-white.svg')}} ')] transition-all duration-300 appearance-none transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 -right-5" value="">
                 </div>
             </form>
         </div>
     </div>
-    <div class="w-full h-full absolute top-0 bg-gradient-to-b from-belibang-black/70 to-belibang-black z-0"></div>
+    <div class="w-full h-full absolute top-0 bg-gradient-to-b from-infinistore-black/70 to-infinistore-black z-0"></div>
 </header>
 
 <section id="Category" class="container max-w-[1130px] mx-auto mb-[102px] flex flex-col gap-8">
@@ -41,92 +41,30 @@
                 </div>
                 <div class="px-[6px] flex flex-col text-left">
                     <p class="font-bold text-sm">All Products</p>
-                    <p class="text-xs text-belibang-grey">Everything in One Place</p>
+                    <p class="text-xs text-infinistore-grey">Everything in One Place</p>
                 </div>
             </div>
         </a>
-        <a href=""
+        @forelse($categories as $category)
+        <a href="{{ route('frontend.category', $category) }}"
             class="group category-card w-fit h-fit p-[1px] rounded-2xl bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
             <div
                 class="flex flex-col p-[18px] rounded-2xl w-[210px] bg-img-black-gradient group-active:bg-img-black transition-all duration-300">
                 <div class="w-[58px] h-[58px] flex shrink-0 items-center justify-center">
-                    <img src="{{ asset('images/icons/laptop.svg') }}" alt="icon">
+                    <img src="{{ asset($category->icon) }}" alt="icon">
                 </div>
                 <div class="px-[6px] flex flex-col text-left">
-                    <p class="font-bold text-sm">Templates</p>
-                    <p class="text-xs text-belibang-grey">Designs Made Easy</p>
+                    <p class="font-bold text-sm">{{ $category->name }}</p>
+                    <p class="text-xs text-infinistore-grey">{{ $category->desc }}</p>
                 </div>
             </div>
         </a>
-        <a href=""
-            class="group category-card w-fit h-fit p-[1px] rounded-2xl bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-            <div
-                class="flex flex-col p-[18px] rounded-2xl w-[210px] bg-img-black-gradient group-active:bg-img-black transition-all duration-300">
-                <div class="w-[58px] h-[58px] flex shrink-0 items-center justify-center">
-                    <img src="{{ asset('images/icons/book.svg') }}" alt="icon">
-                </div>
-                <div class="px-[6px] flex flex-col text-left">
-                    <p class="font-bold text-sm">Ebooks</p>
-                    <p class="text-xs text-belibang-grey">Read and Learn</p>
-                </div>
-            </div>
-        </a>
-        <a href=""
-            class="group category-card w-fit h-fit p-[1px] rounded-2xl bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-            <div
-                class="flex flex-col p-[18px] rounded-2xl w-[210px] bg-img-black-gradient group-active:bg-img-black transition-all duration-300">
-                <div class="w-[58px] h-[58px] flex shrink-0 items-center justify-center">
-                    <img src="{{ asset('images/icons/hat.svg') }}" alt="icon">
-                </div>
-                <div class="px-[6px] flex flex-col text-left">
-                    <p class="font-bold text-sm">Courses</p>
-                    <p class="text-xs text-belibang-grey">Expand Your Skills</p>
-                </div>
-            </div>
-        </a>
-        <a href=""
-            class="group category-card w-fit h-fit p-[1px] rounded-2xl bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-            <div
-                class="flex flex-col p-[18px] rounded-2xl w-[210px] bg-img-black-gradient group-active:bg-img-black transition-all duration-300">
-                <div class="w-[58px] h-[58px] flex shrink-0 items-center justify-center">
-                    <img src="{{ asset('images/icons/pen.svg') }}" alt="icon">
-                </div>
-                <div class="px-[6px] flex flex-col text-left">
-                    <p class="font-bold text-sm">Fonts</p>
-                    <p class="text-xs text-belibang-grey">Typography Selection</p>
-                </div>
-            </div>
-        </a>
+        @empty
+        @endforelse
     </div>
 </section>
 
-<section id="NewProduct" class="container max-w-[1130px] mx-auto mb-[102px] flex flex-col gap-8">
-    <h2 class="font-semibold text-[32px]">New Product</h2>
-    <div class="grid grid-cols-4 gap-[22px]">
-        <div class="product-card flex flex-col rounded-[18px] bg-[#181818] overflow-hidden">
-            <a href="details.html" class="thumbnail w-full h-[180px] flex shrink-0 overflow-hidden relative">
-                <img src="{{ asset('images/thumbnails/img1.png') }}" class=" w-full h-full object-cover" alt="thumbnail">
-                <p class="backdrop-blur bg-black/30 rounded-[4px] p-[4px_8px] absolute top-3 right-[14px] z-10">Rp
-                    129,000</p>
-            </a>
-            <div class="p-[10px_14px_12px] h-full flex flex-col justify-between gap-[14px]">
-                <div class="flex flex-col gap-1">
-                    <a href="details.html" class="font-semibold line-clamp-2 hover:line-clamp-none">SaaS Website
-                        Master Template: Streamline Your Digital Solution</a>
-                    <p
-                        class="bg-[#2A2A2A] font-semibold text-xs text-belibang-grey rounded-[4px] p-[4px_6px] w-fit">
-                        Template</p>
-                </div>
-                <div class="flex items-center gap-[6px]">
-                    <div class="w-6 h-6 flex shrink-0 items-center justify-center rounded-full overflow-hidden">
-                        <img src="{{ asset('images/logos/framer.png') }}" class=" w-full h-full object-cover" alt="logo">
-                    </div>
-                    <a href="" class="font-semibold text-xs text-belibang-grey">Framer</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<x-new-product />
 
 <x-testimonials />
 

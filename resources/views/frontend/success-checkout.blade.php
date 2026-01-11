@@ -2,7 +2,7 @@
 @section('title', 'Success Checkout')
 @section('content')
 
-<x-navbar></x-navbar>
+<x-navbar />
 
 <section id="Success" class="container max-w-[1130px] mx-auto">
     <div class="w-full flex items-center justify-center min-h-[calc(100vh-74px)]">
@@ -18,21 +18,19 @@
                     <p
                         class="font-semibold text-[36px] bg-clip-text text-transparent bg-gradient-to-r from-[#B05CB0] to-[#FCB16B]">
                         Success Checkout</p>
-                    <p class="text-xs text-belibang-grey">Thank you for supporting our great creators</p>
+                    <p class="text-xs text-infinistore-grey">Thank you for supporting our great creators</p>
                 </div>
             </div>
-            <a href="index.html"
+            <a href="{{ route('frontend.index') }}"
                 class="w-[306px] h-12 flex items-center justify-center rounded-full text-center bg-[#2D68F8] p-[8px_18px] font-semibold hover:bg-[#083297] active:bg-[#062162] transition-all duration-300">Check
                 My Transactions</a>
         </div>
     </div>
 </section>
 
-
 @endsection
 
 @push('after-script')
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const menuButton = document.getElementById('menu-button');
@@ -51,5 +49,4 @@
         });
     });
 </script>
-
 @endpush

@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'avatar' => ['required', 'image', 'mimes:png, jpg, jpeg'],
+            'avatar' => ['required', 'image', 'mimes:png,jpg,jpeg,gif,svg'],
             'occupation' => ['required', 'string', 'max:255'],
             'bank_name' => ['required', 'string', 'max:255'],
             'bank_account' => ['required', 'string', 'max:255'],

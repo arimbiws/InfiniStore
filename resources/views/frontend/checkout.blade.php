@@ -5,38 +5,54 @@
 <x-navbar />
 
 <section id="checkout" class="container max-w-[1130px] mx-auto mt-[90px]">
+
+    @if ($errors->any())
+    <div class="alert alert-danger mb-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li class="ps-5 py-5 bg-red-500 text-white font-semibold text-center opacity-75">
+                {{ $error }}
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="w-full flex justify-center gap-[118px]">
         <div class="product-info flex flex-col gap-4 w-min h-fit mt-[18px]">
             <h1 class="font-semibold text-[32px] ">Checkout Product</h1>
             <div class="product-detail flex flex-col gap-3">
                 <div class="thumbnail w-[412px] h-[255px] flex shrink-0 rounded-[20px] overflow-hidden">
-                    <img src="{{ asset('images/thumbnails/checkout.png') }}" class="w-full h-full object-cover"
+                    <img src="{{ Storage::url(($product->cover)) }}" class="w-full h-full object-cover"
                         alt="thumbnail">
                 </div>
                 <div class="product-title flex flex-col gap-[30px]">
                     <div class="flex flex-col gap-3">
-                        <p class="font-semibold">Huis Elite: The Complete Smart Home App UI Kit for Modern Living
-                        </p>
+                        <p class="font-semibold">{{ $product->name}}</p>
                         <p
                             class="bg-[#2A2A2A] font-semibold text-xs text-infinistore-grey rounded-[4px] p-[4px_6px] w-fit">
-                            Template</p>
+                            {{ $product->category->name}}
+                        </p>
                     </div>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center gap-2">
                             <div class="w-8 h-8 rounded-full flex shrink-0 overflow-hidden">
-                                <img src="{{ asset('images/logos/logo_buildwithangga.png') }}" alt="logo">
+                                <img src="{{ Storage::url(($product->creator->avatar)) }}" alt="logo">
                             </div>
-                            <p class="font-semibold text-infinistore-grey">BWA</p>
+                            <p class="font-semibold text-infinistore-grey">{{ $product->creator->name}}</p>
                         </div>
                         <p
                             class="font-semibold text-4xl bg-clip-text text-transparent bg-gradient-to-r from-[#B05CB0] to-[#FCB16B]">
-                            Rp 6,288,000</p>
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        <form
+
+        <form method="post" action="{{ route('frontend.checkout.store', $product->slug) }}" enctype="multipart/form-data"
             class="flex flex-col p-[30px] gap-[60px] rounded-[20px] w-[450px] border-2 border-infinistore-darker-grey">
+            @csrf
             <div class="w-full flex flex-col gap-4">
                 <p class="font-semibold text-xl">Transfer to:</p>
                 <div class="flex flex-col gap-3">
@@ -48,8 +64,9 @@
                                 <select name="bank" id="bank"
                                     class="mt-1 font-semibold bg-transparent appearance-none outline-none px-1 invalid:text-[#595959] invalid:font-normal invalid:text-sm"
                                     required>
-                                    <option class="text-infinistore-black" value="Angga Bank" selected>
-                                        Angga Bank</option>
+                                    <option class="text-infinistore-black" value="{{ $product->creator->bank_name}}" selected>
+                                        {{ $product->creator->bank_name}}
+                                    </option>
                                 </select>
                             </div>
                             <div class="w-6 h-6 flex shrink-0">
@@ -61,7 +78,7 @@
                             <div class="flex flex-col w-full">
                                 <label for="name" class="text-xs text-infinistore-grey pl-1">Account Name</label>
                                 <div class="flex mt-1 items-center max-w-[149px]">
-                                    <input disabled type="text" name="name" value="Angga Capital" id="name"
+                                    <input disabled type="text" name="name" value="{{ $product->creator->bank_account}}" id="name"
                                         class="font-semibold bg-transparent appearance-none autofull-no-bg outline-none px-1 placeholder:text-[#595959] placeholder:font-normal placeholder:text-sm w-full"
                                         placeholder="Type here" required></input>
                                 </div>
@@ -78,7 +95,7 @@
                             <div class="flex mt-1 items-center max-w-[322px]">
                                 <input type="tel" name="number" disabled id="number"
                                     class="mt-1 font-semibold bg-transparent appearance-none autofull-no-bg outline-none px-1 placeholder:text-[#595959] placeholder:font-normal placeholder:text-sm w-full"
-                                    placeholder="Type here" value="8938989812" pattern="[0-9 -]" required></input>
+                                    placeholder="Type here" value="{{ $product->creator->bank_account_number}}" pattern="[0-9 -]" required></input>
                             </div>
                         </div>
                         <div class="w-6 h-6 flex shrink-0">
@@ -113,9 +130,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="success-checkout.html"
-                    class="rounded-full text-center bg-[#2D68F8] p-[8px_18px] font-semibold hover:bg-[#083297] active:bg-[#062162] transition-all duration-300">Checkout
-                    Now</a>
+                <button type="submit"
+                    class="rounded-full text-center bg-[#2D68F8] p-[8px_18px] font-semibold hover:bg-[#083297] active:bg-[#062162] transition-all duration-300">Checkout Now</button>
             </div>
 
         </form>

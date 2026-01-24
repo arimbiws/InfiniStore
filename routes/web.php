@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/checkout/{product:slug}', [CheckoutController::class, 'checkout'])->name('frontend.checkout');
+    Route::post('/checkout/store/{product:slug}', [CheckoutController::class, 'store'])->name('frontend.checkout.store');
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

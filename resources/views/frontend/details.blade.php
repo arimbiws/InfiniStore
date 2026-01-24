@@ -163,7 +163,7 @@
     </div>
 </section>
 
-<x-new-product :products="$more_products" />
+<x-new-product :new-products="$more_products" />
 
 <x-testimonials />
 

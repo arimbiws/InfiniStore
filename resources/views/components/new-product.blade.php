@@ -25,6 +25,8 @@
             </div>
         </div>
         @empty
+        <p class="text-infinistore-grey">No new products available.</p>
+
         @endforelse
 
     </div>

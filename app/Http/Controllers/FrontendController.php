@@ -25,7 +25,6 @@ class FrontendController extends Controller
     public function details(Product $product)
     {
         $product->load(['category', 'creator']);
-        // $more_products = Product::where('id', '!=', $product)->get();
 
         $more_products = Product::where('id', '!=', $product->id)
             ->with(['category', 'creator'])
@@ -45,7 +44,6 @@ class FrontendController extends Controller
 
     public function category(Category $category)
     {
-        // ambil semua product di category ini
         $products = Product::with(['category', 'creator'])
             ->where('category_id', $category->id)
             ->latest()
@@ -59,7 +57,7 @@ class FrontendController extends Controller
 
     public function search(Request $request)
     {
-        $keyword = $request->q;
+        $keyword = $request->input('keyword');
 
         $products = Product::with(['category', 'creator'])
             ->where('name', 'like', "%{$keyword}%")
@@ -68,7 +66,6 @@ class FrontendController extends Controller
 
         return view('frontend.search', [
             'products' => $products,
-            'keyword' => $keyword,
         ]);
     }
 }

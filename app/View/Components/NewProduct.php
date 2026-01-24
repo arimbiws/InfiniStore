@@ -17,14 +17,7 @@ class NewProduct extends Component
      */
     public function __construct($newProducts = null)
     {
-        if ($newProducts) {
-            $this->newProducts = $newProducts;
-        } else {
-            $this->newProducts = Product::with(['category', 'creator'])
-                ->latest()
-                ->take(4)
-                ->get();
-        }
+        $this->newProducts = $newProducts ?? Product::with(['category', 'creator'])->latest()->take(4)->get();
     }
 
     public function render()

@@ -26,15 +26,20 @@ class FrontendController extends Controller
     {
         $product->load(['category', 'creator']);
         // $more_products = Product::where('id', '!=', $product)->get();
+
         $more_products = Product::where('id', '!=', $product->id)
             ->with(['category', 'creator'])
             ->latest()
             ->take(4)
             ->get();
 
+        $creator_id = $product->creator_id;
+        $creator_products = Product::where('creator_id', $creator_id)->get();
+
         return view('frontend.details', [
             'product' => $product,
             'more_products' => $more_products,
+            'creator_products' => $creator_products,
         ]);
     }
 

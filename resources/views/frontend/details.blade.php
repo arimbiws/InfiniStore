@@ -12,8 +12,7 @@
         </div>
     </div>
     <div class="background-image w-full h-full absolute top-0 overflow-hidden z-0">
-        <img src="{{ asset('storage/product_covers/x1.jpeg') }}" class="w-full h-full object-cover" alt="hero image">
-        C:\laragon\www\InfiniStore\storage\app\public\product_covers\x1.jpeg
+        <img src="{{ Storage::url(($product->cover)) }}" class="w-full h-full object-cover" alt="hero image">
     </div>
     <div class="w-full h-1/3 absolute bottom-0 bg-gradient-to-b from-infinistore-black/0 to-infinistore-black z-0"></div>
     <div class="w-full h-full absolute top-0 bg-infinistore-black/95 z-0"></div>
@@ -22,7 +21,7 @@
 <section id="DetailsContent" class="container max-w-[1130px] mx-auto mb-[32px] relative-top-[70px]">
     <div class="flex flex-col gap-8">
         <div class="w-[1130px] h-[700px] flex shrink-0 rounded-[20px] overflow-hidden">
-            <img src="{{ asset('storage/product_covers/x1.jpeg') }}" class="w-full h-full object-cover" alt="hero image">
+            <img src="{{ Storage::url(($product->cover)) }}" class="w-full h-full object-cover" alt="hero image">
         </div>
         <div class="flex gap-8 relative -mt-[93px]">
             <div
@@ -142,13 +141,13 @@
                     <div class="flex justify-between items-center">
                         <div class="flex gap-3 items-center">
                             <div class="w-12 h-12 rounded-full overflow-hidden flex shrink-0">
-                                <img src="{{ asset('images/logos/logo_buildwithangga.png') }}" alt="icon">
+                                <img src="{{ Storage::url(($product->creator->avatar)) }}" alt="icon">
                             </div>
                             <div class="flex flex-col gap-[2px]">
                                 <p class="font-semibold">{{ $product->creator->name }}</p>
                                 <p class="text-[#595959] text-sm leading-[18px]">
-                                    <span class="font-semibold mr-1">183,409</span>
-                                    Product
+                                    <span class="font-semibold mr-1">{{ count($creator_products) }}</span>
+                                    Products
                                 </p>
                             </div>
                         </div>

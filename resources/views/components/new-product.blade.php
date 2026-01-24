@@ -1,5 +1,5 @@
 <section id="NewProduct" class="container max-w-[1130px] mx-auto mb-[102px] flex flex-col gap-8">
-    <h2 class="font-semibold text-[32px]">New Product</h2>
+    <h2 class="font-semibold text-[32px]">New Products</h2>
     <div class="grid grid-cols-4 gap-[22px]">
 
         @forelse($newProducts ?? [] as $product)
